@@ -293,6 +293,7 @@
       <DependentUpon>CarData.edmx</DependentUpon>
       <LastGenOutput>CarData.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\MaintenanceTracker.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
