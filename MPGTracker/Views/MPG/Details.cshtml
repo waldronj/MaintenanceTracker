@@ -1,0 +1,43 @@
+﻿@model MPGTracker.Models.MPG
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MPG</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GallonsPurchased)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GallonsPurchased)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MilesTraveled)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MilesTraveled)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateOfFillUp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfFillUp)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Car.Owner)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Car.Owner)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

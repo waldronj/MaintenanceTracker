@@ -1,0 +1,36 @@
+﻿@model MPGTracker.Models.OilChange
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>OilChange</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MilesOnCar)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MilesOnCar)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateOfChange)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfChange)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Car.Owner)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Car.Owner)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

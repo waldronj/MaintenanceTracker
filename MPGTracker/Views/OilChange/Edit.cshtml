@@ -1,0 +1,54 @@
+﻿@model MPGTracker.Models.OilChange
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>OilChange</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilesOnCar)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilesOnCar)
+            @Html.ValidationMessageFor(model => model.MilesOnCar)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateOfChange)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateOfChange)
+            @Html.ValidationMessageFor(model => model.DateOfChange)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarId, "Car")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CarId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CarId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

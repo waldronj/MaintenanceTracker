@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CarTrackerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CarTrackerModelStoreContainer">
+          <EntitySet Name="Cars" EntityType="CarTrackerModel.Store.Cars" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MPGs" EntityType="CarTrackerModel.Store.MPGs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OilChanges" EntityType="CarTrackerModel.Store.OilChanges" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CarMPG" Association="CarTrackerModel.Store.FK_CarMPG">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="MPGs" EntitySet="MPGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarOilChange" Association="CarTrackerModel.Store.FK_CarOilChange">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="OilChanges" EntitySet="OilChanges" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Owner" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Make" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Model" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Year" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MPGs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GallonsPurchased" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MilesTraveled" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfFillUp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OilChanges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MilesOnCar" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfChange" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CarMPG">
+          <End Role="Cars" Type="CarTrackerModel.Store.Cars" Multiplicity="1" />
+          <End Role="MPGs" Type="CarTrackerModel.Store.MPGs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MPGs">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarOilChange">
+          <End Role="Cars" Type="CarTrackerModel.Store.Cars" Multiplicity="1" />
+          <End Role="OilChanges" Type="CarTrackerModel.Store.OilChanges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OilChanges">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CarTrackerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CarTrackerEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Cars" EntityType="CarTrackerModel.Car" />
+          <EntitySet Name="MPGs" EntityType="CarTrackerModel.MPG" />
+          <EntitySet Name="OilChanges" EntityType="CarTrackerModel.OilChange" />
+          <AssociationSet Name="FK_CarMPG" Association="CarTrackerModel.FK_CarMPG">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="MPGs" EntitySet="MPGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarOilChange" Association="CarTrackerModel.FK_CarOilChange">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="OilChanges" EntitySet="OilChanges" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Owner" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Make" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Year" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="MPGs" Relationship="CarTrackerModel.FK_CarMPG" FromRole="Cars" ToRole="MPGs" />
+          <NavigationProperty Name="OilChanges" Relationship="CarTrackerModel.FK_CarOilChange" FromRole="Cars" ToRole="OilChanges" />
+        </EntityType>
+        <EntityType Name="MPG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="GallonsPurchased" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MilesTraveled" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DateOfFillUp" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="CarTrackerModel.FK_CarMPG" FromRole="MPGs" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="OilChange">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MilesOnCar" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DateOfChange" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="CarTrackerModel.FK_CarOilChange" FromRole="OilChanges" ToRole="Cars" />
+        </EntityType>
+        <Association Name="FK_CarMPG">
+          <End Role="Cars" Type="CarTrackerModel.Car" Multiplicity="1" />
+          <End Role="MPGs" Type="CarTrackerModel.MPG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MPGs">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarOilChange">
+          <End Role="Cars" Type="CarTrackerModel.Car" Multiplicity="1" />
+          <End Role="OilChanges" Type="CarTrackerModel.OilChange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OilChanges">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CarTrackerModelStoreContainer" CdmEntityContainer="CarTrackerEntities">
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="CarTrackerModel.Car">
+              <MappingFragment StoreEntitySet="Cars">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MPGs">
+            <EntityTypeMapping TypeName="CarTrackerModel.MPG">
+              <MappingFragment StoreEntitySet="MPGs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GallonsPurchased" ColumnName="GallonsPurchased" />
+                <ScalarProperty Name="MilesTraveled" ColumnName="MilesTraveled" />
+                <ScalarProperty Name="DateOfFillUp" ColumnName="DateOfFillUp" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OilChanges">
+            <EntityTypeMapping TypeName="CarTrackerModel.OilChange">
+              <MappingFragment StoreEntitySet="OilChanges">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MilesOnCar" ColumnName="MilesOnCar" />
+                <ScalarProperty Name="DateOfChange" ColumnName="DateOfChange" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
