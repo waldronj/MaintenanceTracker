@@ -9,3 +9,14 @@
 @-ms-viewport{width:device-width}
 @-o-viewport{width:device-width}
 @viewport{width:device-width}
+
+body, html {
+    height: 100%;
+}
+.container {
+    min-height: 100%;
+}
+.footer {
+    height: 40px;
+    margin-top: -40px;
+}
