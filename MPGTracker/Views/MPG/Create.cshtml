@@ -46,7 +46,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Create" class="btn btn-primary btn-large"/>
         </p>
     </fieldset>
 }
@@ -57,4 +57,9 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function() {
+            $("#DateOfFillUp").datepicker();
+        });
+    </script>
 }

@@ -758,3 +758,28 @@ tr.pager td {
 #ui-datepicker-calendar {
     background-color: red;
 }
+
+ul form a {
+    border-top-color: rgb(255, 255, 255);
+border-top-style: solid;
+border-top-width: 4px;
+color: rgb(102, 102, 102);
+cursor: auto;
+display: block;
+float: none;
+font-family: 'Droid Sans';
+font-size: 16px;
+height: 20px;
+line-height: 20px;
+list-style-image: none;
+list-style-position: outside;
+list-style-type: none;
+padding-bottom: 22px;
+padding-left: 22px;
+padding-right: 22px;
+padding-top: 22px;
+text-align: left;
+text-decoration: none;
+text-shadow: none;
+width: 62px;
+}
