@@ -2,33 +2,37 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>@ViewBag.Title - Car Maintenance</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
+        <link rel="stylesheet" src="/content/jquery-ui-1.10.3.custom.css"/>
     </head>
     <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Car")</li>
-                            <li>@Html.ActionLink("Vehicles", "Index", "Vehicles")</li>
-                            <li>@Html.ActionLink("Oil Changes", "Index", "OilChange")</li>
-                            <li>@Html.ActionLink("Fuel Economy", "Index", "MPG")</li>
-                        </ul>
-                    </nav>
+          <div class="row-fluid">
+                <div class="span8 offset2">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="container">
+                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </a>
+                                <div class="nav-collapse collapse navbar-responsive-collapse">
+                                    <ul class="nav">
+                                        <li id="Home"><a href="/">Home</a></li>
+                                        <li id="About"><a href="/oilchange/index">Oil Changes</a></li>
+                                        <li id="Resume"><a href="/mpg/index">MPG</a></li>
+                                        <li id="Contact"><a href="/vehicles/index">Vehicles</a></li>
+                                    </ul>
+                                </div><!-- /.nav-collapse -->
+                            </div>
+                        </div><!-- /navbar-inner -->
+                    </div>
                 </div>
             </div>
-        </header>
         <div id="body">
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
@@ -44,6 +48,7 @@
         </footer>
 
         @Scripts.Render("~/bundles/jquery")
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         @RenderSection("scripts", required: false)
     </body>
 </html>

@@ -754,3 +754,7 @@ tr.pager td {
             margin: 0;
         }
 }
+
+#ui-datepicker-calendar {
+    background-color: red;
+}
