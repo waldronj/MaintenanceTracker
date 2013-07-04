@@ -22,9 +22,11 @@
             Date of Fill Up
         </th>
         <th>
+            MPG
+        </th>
+        <th>
             Owner
         </th>
-        
     </tr>
 
 @foreach (var item in Model) {
@@ -39,6 +41,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.DateOfFillUp)
         </td>
+        <th>
+            @{
+                var mpg = decimal.Parse(item.MilesTraveled)/decimal.Parse(item.GallonsPurchased);
+            }
+            @mpg.ToString("###.###")
+        </th>
         <td>
             @Html.DisplayFor(modelItem => item.Car.Owner)
         </td>
