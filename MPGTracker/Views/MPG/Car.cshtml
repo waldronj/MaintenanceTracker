@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MPGTracker.Models.MPG>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>MPG</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-hover">
+    <tr>
+        <th></th>
+        <th>
+            Gallons Purchased
+        </th>
+        <th>
+            Miles Traveled
+        </th>
+        <th>
+            Date of Fill Up
+        </th>
+        <th>
+            MPG
+        </th>
+        <th>
+            Owner
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GallonsPurchased)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MilesTraveled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfFillUp)
+            </td>
+            <th>
+                @{
+        var mpg = decimal.Parse(item.MilesTraveled) / decimal.Parse(item.GallonsPurchased);
+                }
+                @mpg.ToString("###.###")
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.Owner)
+            </td>
+        </tr>
+    }
+
+</table>

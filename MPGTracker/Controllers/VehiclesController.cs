@@ -9,7 +9,7 @@ using MPGTracker.Models;
 
 namespace MPGTracker.Controllers
 {
-    [Authorize(Roles = "Admin, Family")]
+    //[Authorize(Roles = "Admin, Family")]
     public class VehiclesController : Controller
     {
         private CarTrackerEntities db = new CarTrackerEntities();

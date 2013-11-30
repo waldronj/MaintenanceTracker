@@ -9,7 +9,7 @@ using MPGTracker.Models;
 
 namespace MPGTracker.Controllers
 {
-    [Authorize(Roles = "Admin, Family")]
+    //[Authorize(Roles = "Admin, Family")]
     public class MPGController : Controller
     {
         private CarTrackerEntities db = new CarTrackerEntities();
@@ -20,7 +20,16 @@ namespace MPGTracker.Controllers
         public ActionResult Index()
         {
             var mpgs = db.MPGs.Include(m => m.Car);
-            return View(mpgs.ToList());
+            return View(mpgs.OrderByDescending(m=> m.Id).ToList());
+        }
+
+        public ActionResult Car(string Owner)
+        {
+            var dbResults = db.MPGs.Include(m => m.Car);
+            var mpgs = from x in dbResults
+                       where x.Car.Owner == Owner
+                       select x;
+            return View(mpgs.OrderByDescending(m => m.Id).ToList());
         }
 
         //

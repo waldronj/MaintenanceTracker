@@ -391,6 +391,7 @@
     <Content Include="Views\MPG\Edit.cshtml" />
     <Content Include="Views\MPG\Delete.cshtml" />
     <Content Include="Views\MPG\Details.cshtml" />
+    <Content Include="Views\MPG\Car.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -47,7 +47,7 @@
             @mpg.ToString("###.###")
         </th>
         <td>
-            @Html.DisplayFor(modelItem => item.Car.Owner)
+            <a href="/mpg/car?owner=@item.Car.Owner">@item.Car.Owner</a>
         </td>
     </tr>
 }
