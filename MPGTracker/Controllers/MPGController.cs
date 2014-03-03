@@ -9,7 +9,7 @@ using MPGTracker.Models;
 
 namespace MPGTracker.Controllers
 {
-    //[Authorize(Roles = "Admin, Family")]
+    
     public class MPGController : Controller
     {
         private CarTrackerEntities db = new CarTrackerEntities();
@@ -59,9 +59,9 @@ namespace MPGTracker.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(MPG mpg)
+        public ActionResult Create(MPG mpg, string password)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && password == "rdwalw")
             {
                 db.MPGs.Add(mpg);
                 db.SaveChanges();
@@ -91,9 +91,9 @@ namespace MPGTracker.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(MPG mpg)
+        public ActionResult Edit(MPG mpg, string password)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && password == "rdwalw")
             {
                 db.Entry(mpg).State = EntityState.Modified;
                 db.SaveChanges();
@@ -118,7 +118,7 @@ namespace MPGTracker.Controllers
 
         //
         // POST: /MPG/Delete/5
-
+        [Authorize(Roles = "Admin, Family")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
