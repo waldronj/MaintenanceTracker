@@ -49,7 +49,7 @@ namespace MPGTracker.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Car car, string password)
         {
-            if (ModelState.IsValid && password == "rdwalw")
+            if (ModelState.IsValid && password == System.Configuration.ConfigurationManager.AppSettings["passphrase"])
             {
                 db.Cars.Add(car);
                 db.SaveChanges();

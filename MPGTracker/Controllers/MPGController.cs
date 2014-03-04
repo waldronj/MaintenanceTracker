@@ -61,7 +61,7 @@ namespace MPGTracker.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(MPG mpg, string password)
         {
-            if (ModelState.IsValid && password == "rdwalw")
+            if (ModelState.IsValid && password == System.Configuration.ConfigurationManager.AppSettings["passphrase"].ToString())
             {
                 db.MPGs.Add(mpg);
                 db.SaveChanges();
