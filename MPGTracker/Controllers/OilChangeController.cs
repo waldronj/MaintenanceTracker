@@ -50,9 +50,9 @@ namespace MPGTracker.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(OilChange oilchange)
+        public ActionResult Create(OilChange oilchange, string password)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && password == System.Configuration.ConfigurationManager.AppSettings["passphrase"].ToString())
             {
                 db.OilChanges.Add(oilchange);
                 db.SaveChanges();
