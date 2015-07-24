@@ -194,28 +194,28 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Car.cs">
-      <DependentUpon>CarData.tt</DependentUpon>
+      <DependentUpon>Cars.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CarData.Context.cs">
+    <Compile Include="Models\Cars.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarData.Context.tt</DependentUpon>
+      <DependentUpon>Cars.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CarData.cs">
+    <Compile Include="Models\Cars.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarData.tt</DependentUpon>
+      <DependentUpon>Cars.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CarData.Designer.cs">
+    <Compile Include="Models\Cars.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarData.edmx</DependentUpon>
+      <DependentUpon>Cars.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\MPG.cs">
-      <DependentUpon>CarData.tt</DependentUpon>
+      <DependentUpon>Cars.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OilChange.cs">
-      <DependentUpon>CarData.tt</DependentUpon>
+    <Compile Include="Models\OilChanges.cs">
+      <DependentUpon>Cars.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -300,24 +300,24 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Models\CarData.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CarData.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\CarData.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarData.edmx</DependentUpon>
-      <LastGenOutput>CarData.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\CarData.edmx.diagram">
-      <DependentUpon>CarData.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\CarData.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarData.edmx</DependentUpon>
-      <LastGenOutput>CarData.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\images\Thumbs.db" />
+    <EntityDeploy Include="Models\Cars.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Cars.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Cars.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Cars.edmx</DependentUpon>
+      <LastGenOutput>Cars.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Cars.edmx.diagram">
+      <DependentUpon>Cars.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Cars.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Cars.edmx</DependentUpon>
+      <LastGenOutput>Cars.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\MaintenanceTracker.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

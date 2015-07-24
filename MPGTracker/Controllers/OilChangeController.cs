@@ -28,7 +28,7 @@ namespace MPGTracker.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            OilChange oilchange = db.OilChanges.Find(id);
+            OilChanges oilchange = db.OilChanges.Find(id);
             if (oilchange == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace MPGTracker.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(OilChange oilchange, string password)
+        public ActionResult Create(OilChanges oilchange, string password)
         {
             if (ModelState.IsValid && password == System.Configuration.ConfigurationManager.AppSettings["passphrase"].ToString())
             {
@@ -68,7 +68,7 @@ namespace MPGTracker.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            OilChange oilchange = db.OilChanges.Find(id);
+            OilChanges oilchange = db.OilChanges.Find(id);
             if (oilchange == null)
             {
                 return HttpNotFound();
@@ -82,7 +82,7 @@ namespace MPGTracker.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(OilChange oilchange)
+        public ActionResult Edit(OilChanges oilchange)
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace MPGTracker.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            OilChange oilchange = db.OilChanges.Find(id);
+            OilChanges oilchange = db.OilChanges.Find(id);
             if (oilchange == null)
             {
                 return HttpNotFound();
@@ -114,7 +114,7 @@ namespace MPGTracker.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            OilChange oilchange = db.OilChanges.Find(id);
+            OilChanges oilchange = db.OilChanges.Find(id);
             db.OilChanges.Remove(oilchange);
             db.SaveChanges();
             return RedirectToAction("Index");

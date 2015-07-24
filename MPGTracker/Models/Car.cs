@@ -17,7 +17,7 @@ namespace MPGTracker.Models
         public Car()
         {
             this.MPGs = new HashSet<MPG>();
-            this.OilChanges = new HashSet<OilChange>();
+            this.OilChanges = new HashSet<OilChanges>();
         }
     
         public int Id { get; set; }
@@ -27,6 +27,6 @@ namespace MPGTracker.Models
         public string Year { get; set; }
     
         public virtual ICollection<MPG> MPGs { get; set; }
-        public virtual ICollection<OilChange> OilChanges { get; set; }
+        public virtual ICollection<OilChanges> OilChanges { get; set; }
     }
 }

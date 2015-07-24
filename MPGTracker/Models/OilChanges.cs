@@ -12,7 +12,7 @@ namespace MPGTracker.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OilChange
+    public partial class OilChanges
     {
         public int Id { get; set; }
         public string MilesOnCar { get; set; }

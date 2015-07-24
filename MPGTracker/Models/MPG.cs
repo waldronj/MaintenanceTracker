@@ -19,6 +19,7 @@ namespace MPGTracker.Models
         public string MilesTraveled { get; set; }
         public string DateOfFillUp { get; set; }
         public int CarId { get; set; }
+        public decimal PricePerGallon { get; set; }
     
         public virtual Car Car { get; set; }
     }

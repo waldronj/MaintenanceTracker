@@ -27,6 +27,6 @@ namespace MPGTracker.Models
     
         public DbSet<Car> Cars { get; set; }
         public DbSet<MPG> MPGs { get; set; }
-        public DbSet<OilChange> OilChanges { get; set; }
+        public DbSet<OilChanges> OilChanges { get; set; }
     }
 }
