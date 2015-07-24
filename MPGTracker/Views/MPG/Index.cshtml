@@ -14,7 +14,9 @@
         <th>
             Gallons Purchased
         </th>
+        <th>
             Cost Per Gallon
+        </th>
         <th>
             Miles Traveled
         </th>
@@ -55,7 +57,7 @@
         </td>
         <td>
             @{
-                var costOfFillup = decimal.Parse(item.PricePerGallon * item.GallonsPurchased)
+                var costOfFillup = item.PricePerGallon * decimal.Parse(item.GallonsPurchased);
             }
             @costOfFillup.ToString("###.##")
         </td>
