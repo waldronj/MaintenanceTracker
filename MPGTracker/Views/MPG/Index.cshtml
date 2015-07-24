@@ -14,6 +14,7 @@
         <th>
             Gallons Purchased
         </th>
+            Cost Per Gallon
         <th>
             Miles Traveled
         </th>
@@ -22,6 +23,9 @@
         </th>
         <th>
             MPG
+        </th>
+        <th>
+            Cost of Fill Up
         </th>
         <th>
             Owner
@@ -35,17 +39,26 @@
             @Html.DisplayFor(modelItem => item.GallonsPurchased)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.PricePerGallon)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.MilesTraveled)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateOfFillUp)
         </td>
-        <th>
+        <td>
             @{
                 var mpg = decimal.Parse(item.MilesTraveled)/decimal.Parse(item.GallonsPurchased);
             }
             @mpg.ToString("###.###")
-        </th>
+        </td>
+        <td>
+            @{
+                var costOfFillup = decimal.Parse(item.PricePerGallon * item.GallonsPurchased)
+            }
+            @costOfFillup.ToString("###.##")
+        </td>
         <td>
             <a href="/mpg/car?owner=@item.Car.Owner">@item.Car.Owner</a>
         </td>
