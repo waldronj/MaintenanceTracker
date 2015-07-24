@@ -20,6 +20,14 @@
             @Html.EditorFor(model => model.GallonsPurchased)
             @Html.ValidationMessageFor(model => model.GallonsPurchased)
         </div>
+        
+        <div class="editor-label">
+            Price Per Gallon
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PricePerGallon)
+            @Html.ValidationMessageFor(model => model.PricePerGallon)
+        </div>
 
         <div class="editor-label">
             Miles Traveled
