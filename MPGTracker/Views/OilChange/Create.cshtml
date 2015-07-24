@@ -1,4 +1,4 @@
-﻿@model MPGTracker.Models.OilChange
+﻿@model MPGTracker.Models.OilChanges
 
 @{
     ViewBag.Title = "Create";
@@ -35,6 +35,9 @@
         <div class="editor-field">
             @Html.DropDownList("CarId", String.Empty)
             @Html.ValidationMessageFor(model => model.CarId)
+        </div>
+        <div class="editor-label">
+            Password
         </div>
         <div class="editor-field">
             <input type="text" name="password" />
